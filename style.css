@@ -1,0 +1,306 @@
+* {
+    margin: 0; /* Außenabstand */
+    padding: 0; /* Innenabstand */
+    box-sizing: border-box;
+}
+
+:root {
+    --error-background: #faa9a3;
+    --ok-background: #d0fbd0;
+    --fontcolor: #222; 
+}
+
+.ok {
+    position: relative; 
+    border: 1px solid #01af01; 
+    background-color: var(--ok-background); 
+    width: 100%; 
+    height: auto; 
+    padding: 15px; 
+    margin: 10px; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+} 
+
+.error {
+    position: relative;
+    border: 1px solid #ff8c00;
+    background-color: var(--error-background);
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ICONStyle */
+.ok .fa-times,
+.error .fa-times {
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    float: right;
+} 
+
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: whitesmoke;
+}
+
+.cd-layout--wrapper {
+    margin: 50px auto;
+    width: 960px;
+    max-width: 100%;
+    padding: 25px;
+    min-height: 250px;
+    background: white;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Form input style */
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+    /* visibility: initial; */
+    width: 200px;
+    max-width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #555;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+    outline: none;
+    background: #fff;
+}
+
+/* Submit-Schaltfläche in Blau */ 
+.formular input[type="submit"] {
+    background-color: #333;
+    color: white;
+    font-family: 'Kalam', cursive;
+    font-weight: 100;
+    font-size: 16px;
+    padding: 8px 15px;
+    border: none;
+}
+
+/* Schaltfläche beim Hover oder Tastaturfokus dunkelblau */ 
+.formular input[type="submit"]:hover, 
+.formular input[type="submit"]:focus {
+    background-color: #666;
+    transition: ease-out 0.5s;
+}
+
+/* Schaltfläche im Moment des Klicks orange */ 
+.formular input[type="submit"]:active {
+    background-color: #333;
+}
+
+button {
+    width: 100px;
+    height: 33px;
+    margin-top: 2.5px;
+    background-color: #333;
+    color: #fff;
+    font-family: arial;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #666;
+    transition: ease-out 0.5s;
+}
+
+.buttonnSave {
+    font-weight: bold;
+    width: 80px;
+    height: 30px;
+    color: #f1f1f1;
+    background-color: rgb(68, 124, 228);
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.buttonnSave:hover {
+    color: #fff;
+    border: 1px solid #ccc;
+    background-color: rgb(0, 98, 255);
+    transition: ease-out all 0.5s;
+}
+
+.blockInfo {
+    float: left;
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+
+/* Userbereich Style */
+.users {
+    padding: 10px;
+}
+
+.users header {
+    display: block;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    justify-content: space-between; 
+}
+
+.users header img {
+    height: 50px;
+    width: 50px;
+    border: 1px solid #888;
+    border-radius: 50%;  
+}
+p.status {
+    color: #222;
+    margin-top: 5px;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+:is(.users) .content {
+    display: flex;
+    align-items: center;
+}
+  
+:is(.users) .content .details {
+    color: #000;
+    margin-left: 10px;
+}
+  
+:is(.users) .details span {
+    font-size: 20px;
+    font-weight: 600;  
+}
+
+.user {
+    position: absolute;
+    margin-top: 12px;
+    color: var(--fontcolor);
+    text-decoration: none;
+}
+.user:hover {
+    color: darkblue;
+    transition: ease-in all 0.3s;
+}
+
+.status-dot {
+    font-size: 10px;
+    color: #4de059;
+    margin-top: 22px;
+    right: 1%;
+    position: relative;
+}
+
+.status-dot.offline {
+    color: #f33d3d;
+}
+
+.cd-layout--user__container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.cd-layout--user__container form:first-child {
+    margin-right: 8px;
+}
+
+#userimage {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #888;
+    border-radius: 50%;  
+}
+
+.comment-box {
+    width: 500px;
+    max-width: 100%;
+    padding: 8px 8px 18px 8px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}
+
+.comment-box p {
+    font-family: arial;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    font-weight: 100;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 450px;
+    max-width: 100%;
+    height: 125px;
+    font-size: 1.4em;
+    line-height: 1.3em;
+    background-color: #fff;
+    resize: none;
+    border: 1px solid #999;
+    border-radius: 0px;
+}
+
+.btn {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #282828;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.edit,
+.delete {
+    float: right;
+    width: 80px;
+    height: 25px;
+    margin: 5px;
+    background-color: #282828;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a3a3a;
+    cursor: pointer;
+}
