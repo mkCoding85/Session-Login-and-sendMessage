@@ -1,13 +1,9 @@
 <?php
-// Session starten //
+// error_reporting(0);
+date_default_timezone_set('Europe/Berlin');
+include 'posting.inc.php';
+include 'dbconnect.php';
 session_start();
-// Error Reporting //
-error_reporting(0);
-// Datenbankverbindung //
-include('dbconnect.php');
-// Functions //
-include('functions.php');
-// Close //
 ?>
 <!DOCTYPE html>
 <html lang="en">

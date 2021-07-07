@@ -1,12 +1,8 @@
 <?php
-// Session starten //
+date_default_timezone_set('Europe/Berlin');
+include 'posting.inc.php';
+include 'dbconnect.php';
 session_start();
-// Error Reporting //
-error_reporting(0);
-// Datenbankverbindung //
-include('dbconnect.php');
-// Functions //
-include('functions.php');
 // Close //
 ?>
 <!DOCTYPE html>
@@ -32,7 +28,7 @@ include('functions.php');
             <input type="submit" name="signup" value="Logout">
         </form>
         <?php } else {
-            echo "<form method='POST' action='".getLogin($conn)."' class='formular'>
+            echo "<form action='login.inc.php' class='formular' method='POST'>
                 <input type='email' name='email' placeholder='Email'>
                 <input type='password' name='password' placeholder='Password'>
                 <button type='submit' class='btn' name='loginSubmit'>Login</button>
@@ -40,7 +36,7 @@ include('functions.php');
             echo "<h4>Du bist nicht eingeloggt!</h4>";
         } 
         ?>
-    
+
         <div style="display: block; padding: 10px 0;">
         
             <?php
@@ -51,11 +47,12 @@ include('functions.php');
                             <input type='hidden' name='user_id' value='".$_SESSION['id']."'>
                             <textarea cols='33' rows='6' name='message' placeholder='Message'></textarea><br>
                             <button type='submit' class='btn' name='postSubmit'>Post</button>
-                        </form>";
+                        </form>
+                    <br>";
                 }
             /* [END FUNCTION] */
             ?>
-            <br>
+            
             <!-- [FUNCTION EINTRAG ANZEIGEN] --> 
             <?php getPosting($conn); ?>
 
