@@ -155,7 +155,7 @@ if (isset($_SESSION['id'])) {
                 $_SESSION['success'] = "<p class='error'>Änderung hat nicht geklappt. <i class='fas fa-times'></i></p>";
             }
             // Redirect to editprofile.php //
-            header('Location: editprofile.php?id='.htmlspecialchars($zeile['id']));
+            echo "<script>window.open('editprofile.php?id=".$zeile['id']."', '_self')</script>";
             exit();
         }
     // Close //

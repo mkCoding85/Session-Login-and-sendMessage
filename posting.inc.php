@@ -66,21 +66,26 @@ function getPosting($conn) {
                 echo '<span class="status-dot ' .$offline.'" style="right:12px;top:-5px;">
                         <i class="fas fa-circle"></i>
                     </span>';
-                    if (isset($_SESSION['id'])) {
-                        if ($_SESSION['id'] == $zeile2['id']) {
-                            echo "<a class='user' href='editprofile.php?id=".htmlspecialchars($zeile2['id'])."'>
-                                <span>".htmlspecialchars($zeile2['vorname'])."\n".htmlspecialchars($zeile2['nachname'])."</span>
-                            </a>";
-                        } 
-                    }  else {
-                        echo "<span class='user'>".htmlspecialchars($zeile2['vorname'])."\n".htmlspecialchars($zeile2['nachname'])."</span>";
-                    }  
+                // Vor der Session prüfung //
+                echo "<span class='user'>".htmlspecialchars($zeile2['vorname'])."\n".htmlspecialchars($zeile2['nachname'])."</span>";
+                // Session prüfen //
+                if (isset($_SESSION['id'])) {
+                    if ($_SESSION['id'] == $zeile2['id']) {
+                        // In der Session kann der User sein Profil bearbeiten //
+                        echo "<a class='user' href='editprofile.php?id=".htmlspecialchars($zeile2['id'])."'>
+                            <span>".htmlspecialchars($zeile2['vorname'])."\n".htmlspecialchars($zeile2['nachname'])."</span>
+                        </a>";
+                    } 
+                } else {
+                    // Alle User abgemeldet //
+                    echo "<span class='user'>".htmlspecialchars($zeile2['vorname'])."\n".htmlspecialchars($zeile2['nachname'])."</span>";
+                }
                 // Message anzeigen //
                 echo "<small style='float:right;'>".$zeile['datum']."</small>";
                 echo "<br><br><p>".$zeile['message']."</p>";
                 // Wenn Session aktiv ist //
                 if (isset($_SESSION['id'])) {
-                    if ($_SESSION['id'] == $_SESSION['id']) {
+                    if ($_SESSION['id'] == $zeile2['id']) {
                         echo "<form method='POST' action='".deletePosting($conn)."'>
                             <input type='hidden' name='id' value='".$zeile['id']."'>
                             <button type='submit' class='delete' name='deleteSubmit' onclick='return checkdelete()'>Delete</button>

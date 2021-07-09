@@ -33,6 +33,7 @@ session_start();
                 <input type='password' name='password' placeholder='Password'>
                 <button type='submit' class='btn' name='loginSubmit'>Login</button>
             </form><br>";
+            echo "<a href='signup.php'>Signup</a>";
             echo "<h4>Du bist nicht eingeloggt!</h4>";
         } 
         ?>
